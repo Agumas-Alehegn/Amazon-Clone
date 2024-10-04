@@ -1,0 +1,100 @@
+import React from "react";
+import classes from "./header.module.css";
+import { CiLocationOn } from "react-icons/ci";
+import { FaSearch } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
+import cartIcon from "../../assets/images/cart-icon.png";
+import LowerHeader from "./LowerHeader";
+function Header() {
+  return (
+    <section>
+      <div className={classes.header_container}>
+        <div className={classes.header_container_left}>
+          <a href="/">
+            <img
+              src="https://pngimg.com/uploads/amazon/small/amazon_PNG25.png"
+              alt=""
+            />
+          </a>
+          <a href="" className={classes.delivery_wrap}>
+            <CiLocationOn />
+            <div className={classes.delivery_destination}>
+              <p>Deliver to</p>
+              <span>Ethiopia</span>
+            </div>
+          </a>
+        </div>
+        <div className={classes.header_container_middle}>
+          <select name="" className={classes.select_category}>
+            <option value="All" defaultChecked>
+              All Departments
+            </option>
+            <option value="Arts & Crafts">Arts & Crafts</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Baby">Baby</option>
+            <option value="Beauty & personal Care">
+              Beauty & personal Care
+            </option>
+            <option value="Books">Books</option>
+            <option value="Boy's Fashion">Boy's Fashion</option>
+            <option value="Computers">Computers</option>
+            <option value="Deals">Deals</option>
+            <option value="Digital Music">Digital Music</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Girl's Fashion">Girl's Fashion</option>
+            <option value="Health & HouseHold">Health & HouseHold</option>
+            <option value="Home & Kitchen">Home & Kitchen</option>
+            <option value="Industrial & Scientific">
+              Industrial & Scientific
+            </option>
+            <option value="Kindle Store">Kindle Store</option>
+            <option value="Luggage">Luggage</option>
+            <option value="Men's Fashion">Men's Fashion</option>
+            <option value="Movies & TV">Movies & TV</option>
+            <option value="Music, CD's & Vinyl">Music, CD's & Vinyl</option>
+          </select>
+          <input type="text" placeholder="Search Amazon" />
+          <button>
+            <FaSearch />
+          </button>
+        </div>
+        <div className={classes.header_container_right}>
+          <a href="" className={classes.language_wrap}>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/383px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png"
+              alt=""
+            />
+            <span className={classes.language}>
+              EN
+              <sub>
+                <FaCaretDown />
+              </sub>
+            </span>
+          </a>
+
+          <a className={classes.signIn_wrap}>
+            <span>Hello Sign in</span>
+            <p>
+              Accounts & Lists
+              <sub>
+                <FaCaretDown />
+              </sub>
+            </p>
+          </a>
+          <a className={classes.orders} href="">
+            <span>Returns</span> <br />
+            <p>& Orders</p>
+          </a>
+          <a className={classes.cart} href="/Cart">
+            <img src={cartIcon} alt="" />
+            <span>Cart</span>
+            <span className={classes.cart_quantity}>0</span>
+          </a>
+        </div>
+      </div>
+      <LowerHeader />
+    </section>
+  );
+}
+
+export default Header;
