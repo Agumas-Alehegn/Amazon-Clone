@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import { backgroundImg } from "../../assets/data.jsx";
+import { backgroundImg } from "./data.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import classes from "./backgroundCarousel.module.css";
 function BackgroundCarousel() {
