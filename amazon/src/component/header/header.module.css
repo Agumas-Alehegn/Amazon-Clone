@@ -51,7 +51,7 @@ button {
 }
 .header_container_middle:hover,
 .header_container_middle:focus-within {
-  border: 2px solid #d49644;
+  border: 3px solid #d49644;
   border-radius: 8px;
 }
 .header_container_middle input {
