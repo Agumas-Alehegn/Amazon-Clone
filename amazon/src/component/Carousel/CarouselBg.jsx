@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { backgroundImg } from "./carouselData.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import classes from "./backgroundCarousel.module.css";
-function BackgroundCarousel() {
+function CarouselBg() {
   return (
     <div>
       <Carousel
@@ -21,4 +21,4 @@ function BackgroundCarousel() {
   );
 }
 
-export default BackgroundCarousel;
+export default CarouselBg;

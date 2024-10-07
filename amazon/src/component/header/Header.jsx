@@ -5,24 +5,26 @@ import { FaSearch } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 import cartIcon from "../../assets/images/cart-icon.png";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <section>
       <div className={classes.header_container}>
         <div className={classes.header_container_left}>
-          <a href="/">
+          <Link to="/">
             <img
               src="https://pngimg.com/uploads/amazon/small/amazon_PNG25.png"
               alt=""
             />
-          </a>
-          <a href="" className={classes.delivery_wrap}>
+          </Link>
+          <Link to="" className={classes.delivery_wrap}>
             <CiLocationOn />
             <div className={classes.delivery_destination}>
               <p>Deliver to</p>
               <span>Ethiopia</span>
             </div>
-          </a>
+          </Link>
         </div>
         <div className={classes.header_container_middle}>
           <select name="" className={classes.select_category}>
@@ -59,7 +61,7 @@ function Header() {
           </button>
         </div>
         <div className={classes.header_container_right}>
-          <a href="" className={classes.language_wrap}>
+          <Link to="" className={classes.language_wrap}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/383px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png"
               alt=""
@@ -70,9 +72,9 @@ function Header() {
                 <FaCaretDown />
               </sub>
             </span>
-          </a>
+          </Link>
 
-          <a className={classes.signIn_wrap}>
+          <Link to="/SignIn" className={classes.signIn_wrap}>
             <span>Hello Sign in</span>
             <p>
               Accounts & Lists
@@ -80,16 +82,16 @@ function Header() {
                 <FaCaretDown />
               </sub>
             </p>
-          </a>
-          <a className={classes.orders} href="">
+          </Link>
+          <Link to="/Order" className={classes.orders}>
             <span>Returns</span> <br />
             <p>& Orders</p>
-          </a>
-          <a className={classes.cart} href="/Cart">
+          </Link>
+          <Link to="/Cart" className={classes.cart}>
             <img src={cartIcon} alt="" />
             <span>Cart</span>
             <span className={classes.cart_quantity}>0</span>
-          </a>
+          </Link>
         </div>
       </div>
       <LowerHeader />
