@@ -4,6 +4,7 @@ import { categoryData } from "./categoryData";
 import classes from "./category.module.css";
 
 function Category() {
+  
   return (
     <section className={classes.category_container}>
       {categoryData.map((info, i) => {

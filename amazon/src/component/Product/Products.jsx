@@ -5,10 +5,12 @@ import classes from "./products.module.css";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
+        console.log(res);
         setProducts(res.data);
       })
       .catch((err) => {
@@ -22,10 +24,7 @@ function Products() {
   return (
     <section className={`${classes.products_container}`}>
       {products.map((singleProduct) => (
-        <ProductsCard
-          key={singleProduct.id}
-          product={singleProduct}
-        ></ProductsCard>
+        <ProductsCard key={singleProduct.id} product={singleProduct} />
       ))}
     </section>
   );
