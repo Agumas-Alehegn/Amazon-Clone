@@ -6,6 +6,7 @@ import Payment from "./component/Pages/Payment/Payment";
 import Order from "./component/Pages/Orders/Order";
 import Cart from "./component/Pages/Cart/Cart";
 import Results from "./component/Pages/Results/Results";
+import ProductDetail from "./component/Pages/ProductDetail/ProductDetail";
 
 function Routing() {
   return (
@@ -16,6 +17,7 @@ function Routing() {
         <Route path="/Payment" element={<Payment />} />
         <Route path="/Order" element={<Order />} />
         <Route path="/category/:categoryName" element={<Results />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/Cart" element={<Cart />} />
 
         {/* <Route path="*" element={NotFound} /> */}

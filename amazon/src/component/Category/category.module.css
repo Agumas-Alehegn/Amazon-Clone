@@ -28,8 +28,10 @@
 .category_container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 95%;
   gap: 25px;
-  margin-top: -20%;
+  margin: -20% auto 0 auto;
+  /* margin-top: -20%; */
   position: relative;
   place-items: center;
   padding: 0 20px;

@@ -5,7 +5,6 @@ import classes from "./products.module.css";
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState([]);
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
@@ -20,7 +19,6 @@ function Products() {
       });
   }, []);
   console.log(products);
-
   return (
     <section className={`${classes.products_container}`}>
       {products.map((singleProduct) => (
