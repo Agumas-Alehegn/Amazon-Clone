@@ -19,13 +19,13 @@
 }
 .button {
   display: none;
-  padding: 6px 12px;
+  padding: 8px 22px;
   font-weight: 700;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   background-color: var(--tertiary-color-subtle);
-  width: 50%;
+  width: 75%;
   transition: 0.25s ease-in-out;
 }
 .button:hover {
@@ -35,7 +35,6 @@
   display: grid;
   max-width: 1300px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-
   gap: 25px;
   margin: 50px auto;
   justify-items: center;
@@ -43,9 +42,53 @@
 }
 .rating {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 10px 0;
 }
 .rating small {
   margin-left: 10px;
+}
+.product_flexed {
+  display: flex;
+  height: auto;
+  box-shadow: none;
+  gap: 5%;
+  width: 90%;
+  margin: 10% auto 0 auto;
+  justify-content: center;
+}
+
+.product_flexed h3 {
+  padding: 10px 0px;
+}
+.product_flexed .button {
+  display: block;
+  position: static;
+  width: 150px;
+  margin: 20px 0;
+}
+.product_flexed img {
+  width: 300px;
+  height: auto;
+}
+.product_flexed .description_wrap {
+  flex: 1;
+}
+@media screen and (max-width: 768px) {
+  .product_flexed {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .product_flexed img {
+    display: flex;
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .product_flexed .description_wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
 }

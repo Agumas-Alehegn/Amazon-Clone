@@ -33,22 +33,12 @@ function ProductDetail() {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className={classes.details_wrap}>
-          <ProductsCard product={product} />
-
-          <div style={{ marginBottom: "50px " }}>
-            <h2>Product Details</h2>
-            <h3>{product.title}</h3>
-            <p>
-              <strong>Category: </strong>
-              {product.category}
-            </p>
-            <p>
-              <strong>Description: </strong>
-              {product.description}
-            </p>
-          </div>
-        </div>
+        <ProductsCard
+          product={product}
+          flex={true}
+          renderDesc={true}
+          productCategory={true}
+        />
       )}
     </LayOut>
   );
