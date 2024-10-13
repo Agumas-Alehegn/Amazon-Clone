@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./header.module.css";
 import { CiLocationOn } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
@@ -6,10 +6,13 @@ import { FaCaretDown } from "react-icons/fa";
 import cartIcon from "../../assets/images/cart-icon.png";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
+  const [{ cart }, dispatch] = useContext(DataContext);
+  console.log(cart.length);
   return (
-    <section>
+    <section className={classes.fixed_position}>
       <div className={classes.header_container}>
         <div className={classes.header_container_left}>
           <Link to="/">
@@ -90,7 +93,7 @@ function Header() {
           <Link to="/Cart" className={classes.cart}>
             <img src={cartIcon} alt="" />
             <span>Cart</span>
-            <span className={classes.cart_quantity}>0</span>
+            <span className={classes.cart_quantity}>{cart.length}</span>
           </Link>
         </div>
       </div>
