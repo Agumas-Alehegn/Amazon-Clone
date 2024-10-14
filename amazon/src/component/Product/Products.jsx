@@ -31,7 +31,11 @@ function Products() {
       ) : (
         <section className={`${classes.products_container}`}>
           {products.map((singleProduct) => (
-            <ProductsCard key={singleProduct.id} product={singleProduct} />
+            <ProductsCard
+              key={singleProduct.id}
+              product={singleProduct}
+              renderCartBtn={true}
+            />
           ))}
         </section>
       )}

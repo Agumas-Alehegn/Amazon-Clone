@@ -42,7 +42,11 @@ function Results() {
         <div className={classes.products_container}>
           {results.map((singleProduct) => {
             return (
-              <ProductsCard key={singleProduct.id} product={singleProduct} />
+              <ProductsCard
+                key={singleProduct.id}
+                product={singleProduct}
+                renderCartBtn={true}
+              />
             );
           })}
         </div>

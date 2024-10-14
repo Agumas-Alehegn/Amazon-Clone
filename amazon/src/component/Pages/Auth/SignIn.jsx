@@ -5,7 +5,7 @@ import LayOut from "../../LayOut/LayOut";
 function SignIn() {
   return (
     <LayOut>
-      <div>Sign In</div>;
+      <div>Sign In</div>
     </LayOut>
   );
 }

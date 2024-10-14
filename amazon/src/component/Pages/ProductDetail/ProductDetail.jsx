@@ -38,6 +38,7 @@ function ProductDetail() {
           flex={true}
           renderDesc={true}
           productCategory={true}
+          renderCartBtn={true}
         />
       )}
     </LayOut>
