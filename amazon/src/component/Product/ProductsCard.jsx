@@ -54,7 +54,7 @@ function ProductsCard({
           <small>{rating?.count}</small>
         </div>
         <div>
-          <FormatCurrency amount={price} />
+          <FormatCurrency quantity={price} />
         </div>
         {renderCartBtn && (
           <button className={`${classes.button}`} onClick={addToCart}>

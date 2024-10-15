@@ -5,16 +5,34 @@ import { DataContext } from "../../DataProvider/DataProvider";
 import ProductCard from "../../Product/ProductsCard";
 import FormatCurrency from "../../CurrencyFormat/FormatCurrency";
 import { Link } from "react-router-dom";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { Type } from "../../Utility/action.type";
 
 function Cart() {
   const [{ cart }, dispatch] = useContext(DataContext);
   console.log(cart);
-  const total = cart.reduce((amount, item) => {
-    console.log(item.price);
-    console.log(amount);
-    return amount + item.price;
+  const total = cart.reduce((quantity, item) => {
+    // console.log(item.price);
+    // console.log(quantity);
+    return item.price * item.quantity + quantity;
   }, 0);
-  console.log(total);
+  // console.log(total);
+
+  //define functions to increment cart quantity
+  const increment = (item) => {
+    dispatch({
+      type: Type.AddTo_Cart,
+      item,
+    });
+  };
+  // define functions to decrement cart quantity
+  const decrement = (id) => {
+    dispatch({
+      type: Type.RemoveFrom_Cart,
+      id,
+    });
+  };
+
   return (
     <LayOut>
       <section className={classes.container}>
@@ -26,13 +44,31 @@ function Cart() {
           ) : (
             cart.map((item, i) => {
               return (
-                <ProductCard
-                  key={i}
-                  product={item}
-                  flex={true}
-                  renderDesc={true}
-                  renderCartBtn={false}
-                />
+                <>
+                  <ProductCard
+                    key={i}
+                    product={item}
+                    flex={true}
+                    renderDesc={true}
+                    renderCartBtn={false}
+                  ></ProductCard>
+                  <div className={classes.btn_wrap}>
+                    Quantity:{"  "}
+                    <button
+                      className={classes.btn}
+                      onClick={() => increment(item)}
+                    >
+                      <IoMdArrowDropup />
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      className={classes.btn}
+                      onClick={() => decrement(item.id)}
+                    >
+                      <IoMdArrowDropdown />
+                    </button>
+                  </div>
+                </>
               );
             })
           )}
@@ -41,7 +77,7 @@ function Cart() {
           <div className={classes.subtotal}>
             <div>
               <p>Subtotal: ({cart?.length} Items)</p>
-              <FormatCurrency amount={total} />
+              <FormatCurrency quantity={total} />
             </div>
             <span>
               <input type="checkbox" name="" id="" />

@@ -10,7 +10,10 @@ import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
   const [{ cart }, dispatch] = useContext(DataContext);
-  console.log(cart.length);
+  // console.log(cart.length);
+  const totalQuantity = cart?.reduce((quantity, item) => {
+    return item.quantity + quantity;
+  }, 0);
   return (
     <section className={classes.fixed_position}>
       <div className={classes.header_container}>
@@ -93,7 +96,7 @@ function Header() {
           <Link to="/Cart" className={classes.cart}>
             <img src={cartIcon} alt="" />
             <span>Cart</span>
-            <span className={classes.cart_quantity}>{cart.length}</span>
+            <span className={classes.cart_quantity}>{totalQuantity}</span>
           </Link>
         </div>
       </div>

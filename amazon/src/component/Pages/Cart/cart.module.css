@@ -7,6 +7,25 @@
 .container img {
   width: 100px !important;
 }
+
+.btn_wrap {
+  background-color: var(--nav-font-color);
+  width: 85%;
+  margin: 0 auto;
+  padding: 6px 11px;
+  border: none;
+}
+
+.btn_wrap .btn {
+  background-color: var(--nav-font-color);
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  padding-right: 22px;
+}
+.btn_wrap .btn:hover {
+  background-color: var(--tertiary-color);
+}
 .cart_container {
   padding: 20px;
 }
