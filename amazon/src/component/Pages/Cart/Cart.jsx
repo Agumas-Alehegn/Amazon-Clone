@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./cart.module.css";
 import LayOut from "../../LayOut/LayOut";
 import { DataContext } from "../../DataProvider/DataProvider";
@@ -9,6 +9,8 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { Type } from "../../Utility/action.type";
 
 function Cart() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [{ cart }, dispatch] = useContext(DataContext);
   console.log(cart);
   const total = cart.reduce((quantity, item) => {
@@ -87,6 +89,7 @@ function Cart() {
           </div>
         )}
       </section>
+      )
     </LayOut>
   );
 }
