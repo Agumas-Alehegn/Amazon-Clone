@@ -80,7 +80,7 @@ function Header() {
             </span>
           </Link>
 
-          <Link to="/SignIn" className={classes.signIn_wrap}>
+          <Link to="/Auth" className={classes.signIn_wrap}>
             <span>Hello Sign in</span>
             <p>
               Accounts & Lists
