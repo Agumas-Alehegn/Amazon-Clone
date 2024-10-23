@@ -2,7 +2,9 @@ import { Type } from "./action.type";
 
 export const initialState = {
   cart: [],
+  user: null,
 };
+ 
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -46,6 +48,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: newCart,
+      };
+
+    case Type.Set_User:
+      return {
+        ...state,
+        user: action.user,
       };
 
     default:

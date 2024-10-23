@@ -7,9 +7,10 @@ import cartIcon from "../../assets/images/cart-icon.png";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from "../Utility/firebase";
 
 function Header() {
-  const [{ cart }, dispatch] = useContext(DataContext);
+  const [{ user, cart }, dispatch] = useContext(DataContext);
   // console.log(cart.length);
   const totalQuantity = cart?.reduce((quantity, item) => {
     return item.quantity + quantity;
@@ -80,14 +81,28 @@ function Header() {
             </span>
           </Link>
 
-          <Link to="/Auth" className={classes.signIn_wrap}>
-            <span>Hello Sign in</span>
-            <p>
-              Accounts & Lists
-              <sub>
-                <FaCaretDown />
-              </sub>
-            </p>
+          <Link to={!user && "/Auth"} className={classes.signIn_wrap}>
+            {user ? (
+              <>
+                <span>Hello, {user?.email?.split("@")[0]}</span>
+                <p onClick={() => auth.signOut()}>
+                  SignOut
+                  <sub>
+                    <FaCaretDown />
+                  </sub>
+                </p>
+              </>
+            ) : (
+              <>
+                <span>Hello, Sign in</span>
+                <p>
+                  Accounts & Lists
+                  <sub>
+                    <FaCaretDown />
+                  </sub>
+                </p>
+              </>
+            )}
           </Link>
           <Link to="/Order" className={classes.orders}>
             <span>Returns</span> <br />

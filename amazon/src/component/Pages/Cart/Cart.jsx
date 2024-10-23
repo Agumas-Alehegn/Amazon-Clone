@@ -89,7 +89,6 @@ function Cart() {
           </div>
         )}
       </section>
-      )
     </LayOut>
   );
 }
