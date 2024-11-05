@@ -9,25 +9,17 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { Type } from "../../Utility/action.type";
 
 function Cart() {
-  const [isLoading, setIsLoading] = useState(false);
-
   const [{ cart }, dispatch] = useContext(DataContext);
   console.log(cart);
   const total = cart.reduce((quantity, item) => {
-    // console.log(item.price);
-    // console.log(quantity);
     return item.price * item.quantity + quantity;
   }, 0);
-  // console.log(total);
-
-  //define functions to increment cart quantity
   const increment = (item) => {
     dispatch({
       type: Type.AddTo_Cart,
       item,
     });
   };
-  // define functions to decrement cart quantity
   const decrement = (id) => {
     dispatch({
       type: Type.RemoveFrom_Cart,
