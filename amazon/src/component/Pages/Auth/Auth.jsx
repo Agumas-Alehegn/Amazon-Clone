@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import classes from "./auth.module.css";
 import LayOut from "../../LayOut/LayOut";
 import amazon_logo from "../../../assets/images/amazon_logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import { Type } from "../../Utility/action.type";
 import {
@@ -14,31 +14,25 @@ import { ClipLoader } from "react-spinners";
 
 function Auth() {
   const [email, setEmail] = useState("");
-  //hold current email input state
-  const [password, setPassword] = useState(""); // hold current password input state
-  const [error, setError] = useState(""); // if error is happening it holds it
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState({ signIn: false, signUp: false });
-
   const [{ user }, dispatch] = useContext(DataContext);
   const navigate = useNavigate();
-  console.log(user);
+  const navStateData = useLocation();
 
   const authHandler = async (e) => {
     e.preventDefault(e);
-    console.log(e.target.name);
     if (e.target.name == "signIn") {
-      //firebase authentication  can start here because we can get  a user info here.
-      //we can use methods from auth configured and from firebase installed through npm
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          console.log(user);
           dispatch({
             type: Type.Set_User,
             user: userInfo.user,
           });
           setLoading({ ...loading, signIn: false });
-          navigate("/");
+          navigate(navStateData.state?.redirect || "/");
         })
         .catch((err) => {
           if (err) {
@@ -50,13 +44,12 @@ function Auth() {
       setLoading({ ...loading, signUp: true });
       createUserWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          console.log(user);
           dispatch({
             type: Type.Set_User,
             user: userInfo.user,
           });
           setLoading({ ...loading, signUp: false });
-          navigate("/");
+          navigate(navStateData.state?.redirect || "/");
         })
         .catch((err) => {
           setError(err.message);
@@ -74,6 +67,11 @@ function Auth() {
         <div className={classes.login_container}>
           <form action="">
             <h1>Sign in</h1>
+            {navStateData?.state?.msg && (
+              <small style={{ color: "salmon", textAlign: "center" }}>
+                {navStateData?.state?.msg}
+              </small>
+            )}
             <div>
               <label htmlFor="email">Email</label>
               <input
