@@ -28,8 +28,9 @@
 .category_container {
   display: grid;
   max-width: 1400px;
-  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 25px;
+  max-width: 1600px;
   margin: -20% auto 0;
   justify-items: center;
   overflow-x: hidden;

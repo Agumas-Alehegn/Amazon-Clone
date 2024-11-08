@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { DataContext } from "../component/DataProvider/DataProvider";
+import { DataContext } from "../DataProvider/DataProvider";
 import { useNavigate } from "react-router-dom";
 
 function ProtectedRoute({ children, msg, redirect }) {

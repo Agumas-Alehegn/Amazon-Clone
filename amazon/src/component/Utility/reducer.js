@@ -4,7 +4,6 @@ export const initialState = {
   cart: [],
   user: null,
 };
- 
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -48,6 +47,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: newCart,
+      };
+    case Type.Clear_Cart:
+      return {
+        ...state,
+        cart: [],
       };
 
     case Type.Set_User:

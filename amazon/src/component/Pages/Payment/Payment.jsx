@@ -11,6 +11,7 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../Utility/firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { Type } from "../../Utility/action.type";
 
 function Payment() {
   const [{ cart, user }, dispatch] = useContext(DataContext);
@@ -57,6 +58,8 @@ function Payment() {
           created: paymentIntent.created,
         }
       );
+      // empty the cart after order made
+      dispatch({ type: Type.Clear_Cart });
 
       setCardProcessing(false);
       navigate("/Order", {

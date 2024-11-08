@@ -10,7 +10,6 @@ import { Type } from "../../Utility/action.type";
 
 function Cart() {
   const [{ cart }, dispatch] = useContext(DataContext);
-  console.log(cart);
   const total = cart.reduce((quantity, item) => {
     return item.price * item.quantity + quantity;
   }, 0);
